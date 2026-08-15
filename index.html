@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,39 @@
 
 <body>
 
+    <!-- =====================================================
+         AUTHENTICATION SCREEN
+    ====================================================== -->
+
     <div id="loginScreen" class="auth-screen">
 
         <div class="auth-card">
 
             <div class="brand">
-                <div class="brand-logo">JM</div>
+
+                <div class="brand-logo">
+                    JM
+                </div>
+
                 <h1>Jimmy Mailer</h1>
+
                 <p>Smart List Mailing</p>
+
             </div>
 
-            <!-- SIGN IN -->
+
+            <!-- ================= SIGN IN ================= -->
+
             <div id="loginBox">
 
                 <h2>Sign In</h2>
 
                 <form id="loginForm">
 
-                    <label for="loginEmail">Email</label>
+                    <label for="loginEmail">
+                        Email
+                    </label>
+
                     <input
                         type="email"
                         id="loginEmail"
@@ -36,7 +52,11 @@
                         autocomplete="email"
                     >
 
-                    <label for="loginPassword">Password</label>
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
                     <input
                         type="password"
                         id="loginPassword"
@@ -44,30 +64,48 @@
                         autocomplete="current-password"
                     >
 
-                    <button type="submit" id="loginButton">
+
+                    <button
+                        type="submit"
+                        id="loginButton"
+                    >
                         SIGN IN
                     </button>
 
                 </form>
 
+
                 <p class="switch-auth">
+
                     Don't have an account?
-                    <button type="button" id="showSignup">
+
+                    <button
+                        type="button"
+                        id="showSignup"
+                    >
                         Sign Up
                     </button>
+
                 </p>
 
             </div>
 
 
-            <!-- SIGN UP -->
-            <div id="signupBox" class="hidden">
+            <!-- ================= SIGN UP ================= -->
+
+            <div
+                id="signupBox"
+                class="hidden"
+            >
 
                 <h2>Create Account</h2>
 
                 <form id="signupForm">
 
-                    <label for="signupName">Name</label>
+                    <label for="signupName">
+                        Name
+                    </label>
+
                     <input
                         type="text"
                         id="signupName"
@@ -75,7 +113,11 @@
                         autocomplete="name"
                     >
 
-                    <label for="signupEmail">Email</label>
+
+                    <label for="signupEmail">
+                        Email
+                    </label>
+
                     <input
                         type="email"
                         id="signupEmail"
@@ -83,7 +125,11 @@
                         autocomplete="email"
                     >
 
-                    <label for="signupPassword">Password</label>
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
                     <input
                         type="password"
                         id="signupPassword"
@@ -92,17 +138,28 @@
                         autocomplete="new-password"
                     >
 
-                    <button type="submit" id="signupButton">
+
+                    <button
+                        type="submit"
+                        id="signupButton"
+                    >
                         CREATE ACCOUNT
                     </button>
 
                 </form>
 
+
                 <p class="switch-auth">
+
                     Already have an account?
-                    <button type="button" id="showLogin">
+
+                    <button
+                        type="button"
+                        id="showLogin"
+                    >
                         Sign In
                     </button>
+
                 </p>
 
             </div>
@@ -112,49 +169,439 @@
     </div>
 
 
-    <!-- APP -->
-    <div id="app" class="app hidden">
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
+    <div
+        id="app"
+        class="app hidden"
+    >
+
+        <!-- ================= HEADER ================= -->
 
         <header class="app-header">
-            <div>
-                <strong>Jimmy Mailer</strong>
+
+            <div class="header-brand">
+
+                <div class="header-logo">
+                    JM
+                </div>
+
+                <strong>
+                    Jimmy Mailer
+                </strong>
+
             </div>
 
-            <div>
+
+            <div class="header-user">
+
                 <span id="userEmail"></span>
-                <button id="logoutButton">Logout</button>
+
+                <button
+                    id="logoutButton"
+                    type="button"
+                >
+                    Logout
+                </button>
+
             </div>
+
         </header>
 
-        <main class="app-content">
 
-            <h1>Dashboard</h1>
+        <!-- ================= APPLICATION BODY ================= -->
 
-            <div class="welcome-card">
-                <h2>Welcome to Jimmy Mailer</h2>
-                <p>
-                    Your account is successfully connected.
-                </p>
-            </div>
+        <div class="app-body">
 
-        </main>
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <aside class="sidebar">
+
+                <nav class="sidebar-nav">
+
+                    <button
+                        class="nav-item active"
+                        data-page="dashboard"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ▦
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="campaigns"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ✉
+                        </span>
+
+                        <span>
+                            Campaigns
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="contacts"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ◎
+                        </span>
+
+                        <span>
+                            Contacts
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="templates"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            □
+                        </span>
+
+                        <span>
+                            Templates
+                        </span>
+
+                    </button>
+
+
+                    <div class="sidebar-divider"></div>
+
+
+                    <button
+                        class="nav-item"
+                        data-page="settings"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ⚙
+                        </span>
+
+                        <span>
+                            Settings
+                        </span>
+
+                    </button>
+
+                </nav>
+
+
+                <div class="sidebar-footer">
+
+                    <div class="sidebar-status-dot"></div>
+
+                    <span>
+                        Account connected
+                    </span>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================= MAIN CONTENT ================= -->
+
+            <main class="app-content">
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1 id="pageTitle">
+                            Dashboard
+                        </h1>
+
+                        <p id="pageSubtitle">
+                            Overview of your Jimmy Mailer account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DASHBOARD -->
+
+                <section
+                    id="dashboardPage"
+                    class="page-section"
+                >
+
+                    <div class="welcome-card">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                WELCOME
+                            </span>
+
+                            <h2>
+                                Welcome to Jimmy Mailer
+                            </h2>
+
+                            <p>
+                                Your account is successfully connected.
+                                Your email marketing workspace is ready.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                Campaigns
+                            </span>
+
+                            <strong class="stat-value">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                No campaigns yet
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                Contacts
+                            </span>
+
+                            <strong class="stat-value">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                No contacts yet
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                Templates
+                            </span>
+
+                            <strong class="stat-value">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                No templates yet
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                Emails Sent
+                            </span>
+
+                            <strong class="stat-value">
+                                0
+                            </strong>
+
+                            <span class="stat-description">
+                                No emails sent yet
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Getting Started
+                                </h3>
+
+                                <p>
+                                    Your Jimmy Mailer workspace is ready.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="getting-started">
+
+                            <div class="getting-item">
+
+                                <span class="getting-number">
+                                    1
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Add contacts
+                                    </strong>
+
+                                    <p>
+                                        Build your mailing list.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="getting-item">
+
+                                <span class="getting-number">
+                                    2
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Create a campaign
+                                    </strong>
+
+                                    <p>
+                                        Prepare your first email campaign.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="getting-item">
+
+                                <span class="getting-number">
+                                    3
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Send your campaign
+                                    </strong>
+
+                                    <p>
+                                        Reach your contacts.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PLACEHOLDER PAGES -->
+
+                <section
+                    id="placeholderPage"
+                    class="page-section hidden"
+                >
+
+                    <div class="empty-page">
+
+                        <div class="empty-icon">
+                            JM
+                        </div>
+
+                        <h2 id="placeholderTitle">
+                            Coming Soon
+                        </h2>
+
+                        <p id="placeholderText">
+                            This section will be implemented in a later step.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
 
     </div>
 
 
-    <!-- LOADING -->
-    <div id="loadingOverlay" class="loading hidden">
+    <!-- =====================================================
+         LOADING
+    ====================================================== -->
+
+    <div
+        id="loadingOverlay"
+        class="loading hidden"
+    >
+
         <div class="spinner"></div>
-        <p>Please wait...</p>
+
+        <p>
+            Please wait...
+        </p>
+
     </div>
 
 
-    <!-- TOAST -->
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
     <div id="toastContainer"></div>
 
 
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script src="app.js"></script>
 
 </body>
+
 </html>

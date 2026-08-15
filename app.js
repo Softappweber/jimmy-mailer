@@ -25,8 +25,8 @@ const signupBox = document.getElementById('signupBox');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 
-const showSignup = document.getElementById('showSignup');
-const showLogin = document.getElementById('showLogin');
+const showSignupButton = document.getElementById('showSignup');
+const showLoginButton = document.getElementById('showLogin');
 
 const logoutButton = document.getElementById('logoutButton');
 
@@ -71,10 +71,10 @@ function showToast(message) {
 
 
 // =====================================================
-// Show Login
+// Show Login Screen
 // =====================================================
 
-function showLogin() {
+function showLoginScreen() {
 
     loginScreen.classList.remove('hidden');
     app.classList.add('hidden');
@@ -83,7 +83,7 @@ function showLogin() {
 
 
 // =====================================================
-// Show App
+// Show Dashboard
 // =====================================================
 
 function showApp(user) {
@@ -127,9 +127,7 @@ async function signup(name, email, password) {
         }
 
 
-        // If email confirmation is required,
-        // Supabase may return a user without a session.
-
+        // Email confirmation required
         if (!data.session) {
 
             showToast(
@@ -143,6 +141,7 @@ async function signup(name, email, password) {
         }
 
 
+        // Email confirmation not required
         showApp(data.user);
 
         showToast(
@@ -239,7 +238,7 @@ async function logout() {
             throw error;
         }
 
-        showLogin();
+        showLoginScreen();
 
         loginForm.reset();
         signupForm.reset();
@@ -287,7 +286,7 @@ async function checkAuth() {
 
         } else {
 
-            showLogin();
+            showLoginScreen();
 
         }
 
@@ -298,7 +297,7 @@ async function checkAuth() {
             error
         );
 
-        showLogin();
+        showLoginScreen();
 
     } finally {
 
@@ -327,7 +326,7 @@ supabaseClient.auth.onAuthStateChange(
 
         } else {
 
-            showLogin();
+            showLoginScreen();
 
         }
 
@@ -339,7 +338,7 @@ supabaseClient.auth.onAuthStateChange(
 // UI Events
 // =====================================================
 
-showSignup.addEventListener(
+showSignupButton.addEventListener(
     'click',
     () => {
 
@@ -350,7 +349,7 @@ showSignup.addEventListener(
 );
 
 
-showLogin.addEventListener(
+showLoginButton.addEventListener(
     'click',
     () => {
 

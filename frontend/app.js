@@ -3,8 +3,8 @@
 // Supabase Authentication
 // =====================================================
 
-const SUPABASE_URL = 'PASTE_YOUR_SUPABASE_PROJECT_URL_HERE';
-const SUPABASE_PUBLISHABLE_KEY = 'PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE';
+const SUPABASE_URL = 'https://noqomcunnjpseckfwexq.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_JEy64MEHECql-Om23gaqdA_TEcl3T5O';
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,

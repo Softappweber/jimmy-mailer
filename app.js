@@ -435,6 +435,120 @@ logoutButton.addEventListener(
 
 
 // =====================================================
+// Dashboard Navigation
+// =====================================================
+
+const navItems =
+    document.querySelectorAll('.nav-item');
+
+const dashboardPage =
+    document.getElementById('dashboardPage');
+
+const placeholderPage =
+    document.getElementById('placeholderPage');
+
+const pageTitle =
+    document.getElementById('pageTitle');
+
+const pageSubtitle =
+    document.getElementById('pageSubtitle');
+
+const placeholderTitle =
+    document.getElementById('placeholderTitle');
+
+const placeholderText =
+    document.getElementById('placeholderText');
+
+
+const pageInformation = {
+
+    dashboard: {
+        title: 'Dashboard',
+        subtitle: 'Overview of your Jimmy Mailer account.'
+    },
+
+    campaigns: {
+        title: 'Campaigns',
+        subtitle: 'Create and manage email campaigns.'
+    },
+
+    contacts: {
+        title: 'Contacts',
+        subtitle: 'Manage your mailing contacts.'
+    },
+
+    templates: {
+        title: 'Templates',
+        subtitle: 'Create and manage email templates.'
+    },
+
+    settings: {
+        title: 'Settings',
+        subtitle: 'Manage your Jimmy Mailer account settings.'
+    }
+
+};
+
+
+navItems.forEach(item => {
+
+    item.addEventListener(
+        'click',
+        () => {
+
+            const page =
+                item.dataset.page;
+
+
+            navItems.forEach(nav => {
+
+                nav.classList.remove('active');
+
+            });
+
+
+            item.classList.add('active');
+
+
+            const information =
+                pageInformation[page];
+
+
+            pageTitle.textContent =
+                information.title;
+
+            pageSubtitle.textContent =
+                information.subtitle;
+
+
+            if (page === 'dashboard') {
+
+                dashboardPage.classList.remove('hidden');
+
+                placeholderPage.classList.add('hidden');
+
+                return;
+            }
+
+
+            dashboardPage.classList.add('hidden');
+
+            placeholderPage.classList.remove('hidden');
+
+
+            placeholderTitle.textContent =
+                information.title;
+
+            placeholderText.textContent =
+                'This section will be implemented in a later step.';
+
+        }
+    );
+
+});
+
+
+// =====================================================
 // Start
 // =====================================================
 

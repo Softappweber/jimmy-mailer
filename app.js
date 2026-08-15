@@ -116,7 +116,9 @@ async function signup(name, email, password) {
                 options: {
                     data: {
                         name: name
-                    }
+                    },
+                    emailRedirectTo:
+                'https://softappweber.github.io/jimmy-mailer/'
                 }
 
             });

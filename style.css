@@ -20,7 +20,8 @@ body {
 }
 
 button,
-input {
+input,
+textarea {
     font-family: inherit;
 }
 
@@ -63,45 +64,67 @@ button {
     width: 64px;
     height: 64px;
     margin: 0 auto 15px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 16px;
+
     background: #2563eb;
     color: #ffffff;
+
     font-size: 22px;
     font-weight: bold;
 }
 
 .brand h1 {
     margin: 0;
+    color: #101828;
     font-size: 28px;
 }
 
 .brand p {
     margin-top: 8px;
-    color: #687386;
+    color: #596579;
 }
 
 .auth-card h2 {
     margin-bottom: 20px;
+    color: #101828;
 }
 
 .auth-card label {
     display: block;
+
     margin-top: 15px;
     margin-bottom: 7px;
+
+    color: #172033;
+
     font-size: 14px;
     font-weight: 600;
 }
 
 .auth-card input {
     width: 100%;
+
     padding: 12px 14px;
+
     border: 1px solid #d5dbe5;
     border-radius: 8px;
+
+    background: #ffffff;
+    color: #172033;
+
     font-size: 15px;
+
     outline: none;
+}
+
+.auth-card input::placeholder {
+    color: #596579;
+    opacity: 1;
 }
 
 .auth-card input:focus {
@@ -110,12 +133,16 @@ button {
 
 .auth-card form button {
     width: 100%;
+
     margin-top: 22px;
     padding: 13px;
+
     border: 0;
     border-radius: 8px;
+
     background: #2563eb;
     color: #ffffff;
+
     font-size: 14px;
     font-weight: bold;
 }
@@ -126,21 +153,26 @@ button {
 
 .switch-auth {
     margin-top: 22px;
+
     text-align: center;
-    color: #687386;
+
+    color: #596579;
+
     font-size: 14px;
 }
 
 .switch-auth button {
     border: 0;
     background: none;
+
     color: #2563eb;
+
     font-weight: bold;
 }
 
 
 /* =====================================================
-   APPLICATION HEADER
+   APPLICATION
 ===================================================== */
 
 .app {
@@ -148,10 +180,18 @@ button {
     background: #f4f7fb;
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 .app-header {
     height: 64px;
+
     padding: 0 24px;
+
     background: #ffffff;
+
     border-bottom: 1px solid #e5e9f0;
 
     display: flex;
@@ -162,6 +202,7 @@ button {
 .header-brand {
     display: flex;
     align-items: center;
+
     gap: 10px;
 }
 
@@ -183,26 +224,32 @@ button {
 }
 
 .header-brand strong {
+    color: #101828;
     font-size: 18px;
 }
 
 .header-user {
     display: flex;
     align-items: center;
+
     gap: 15px;
 }
 
 #userEmail {
-    color: #687386;
+    color: #596579;
     font-size: 14px;
 }
 
 #logoutButton {
     border: 1px solid #d5dbe5;
+
     padding: 8px 14px;
+
     border-radius: 7px;
+
     background: #ffffff;
     color: #172033;
+
     font-size: 13px;
 }
 
@@ -228,9 +275,11 @@ button {
 
 .sidebar {
     width: 230px;
+
     flex-shrink: 0;
 
     background: #ffffff;
+
     border-right: 1px solid #e5e9f0;
 
     display: flex;
@@ -259,7 +308,7 @@ button {
 
     background: transparent;
 
-    color: #687386;
+    color: #596579;
 
     text-align: left;
 
@@ -289,6 +338,7 @@ button {
 
 .sidebar-divider {
     height: 1px;
+
     margin: 15px 8px;
 
     background: #e5e9f0;
@@ -304,7 +354,7 @@ button {
 
     border-top: 1px solid #e5e9f0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 12px;
 }
@@ -338,13 +388,15 @@ button {
 .page-header h1 {
     margin: 0;
 
+    color: #101828;
+
     font-size: 28px;
 }
 
 .page-header p {
     margin: 7px 0 0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 14px;
 }
@@ -360,6 +412,7 @@ button {
     background: #ffffff;
 
     border: 1px solid #e5e9f0;
+
     border-radius: 12px;
 
     margin-bottom: 22px;
@@ -374,11 +427,14 @@ button {
 
     font-size: 11px;
     font-weight: bold;
+
     letter-spacing: 0.08em;
 }
 
 .welcome-card h2 {
     margin: 0 0 8px;
+
+    color: #101828;
 
     font-size: 22px;
 }
@@ -386,7 +442,7 @@ button {
 .welcome-card p {
     margin: 0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 14px;
 
@@ -415,13 +471,14 @@ button {
     background: #ffffff;
 
     border: 1px solid #e5e9f0;
+
     border-radius: 11px;
 }
 
 .stat-label {
     display: block;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 13px;
     font-weight: 600;
@@ -432,13 +489,15 @@ button {
 .stat-value {
     display: block;
 
+    color: #101828;
+
     font-size: 28px;
 
     margin-bottom: 6px;
 }
 
 .stat-description {
-    color: #8a94a6;
+    color: #596579;
 
     font-size: 12px;
 }
@@ -452,6 +511,7 @@ button {
     background: #ffffff;
 
     border: 1px solid #e5e9f0;
+
     border-radius: 12px;
 }
 
@@ -464,13 +524,15 @@ button {
 .card-header h3 {
     margin: 0 0 5px;
 
+    color: #101828;
+
     font-size: 17px;
 }
 
 .card-header p {
     margin: 0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 13px;
 }
@@ -509,6 +571,7 @@ button {
     border-radius: 50%;
 
     background: #eff6ff;
+
     color: #2563eb;
 
     font-size: 13px;
@@ -520,13 +583,15 @@ button {
 
     margin-bottom: 5px;
 
+    color: #101828;
+
     font-size: 13px;
 }
 
 .getting-item p {
     margin: 0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 12px;
 
@@ -535,7 +600,7 @@ button {
 
 
 /* =====================================================
-   PLACEHOLDER
+   PLACEHOLDER / EMPTY PAGES
 ===================================================== */
 
 .empty-page {
@@ -552,6 +617,7 @@ button {
     background: #ffffff;
 
     border: 1px solid #e5e9f0;
+
     border-radius: 12px;
 }
 
@@ -568,6 +634,7 @@ button {
     border-radius: 14px;
 
     background: #eff6ff;
+
     color: #2563eb;
 
     font-size: 16px;
@@ -576,14 +643,27 @@ button {
 
 .empty-page h2 {
     margin: 0 0 8px;
+
+    color: #101828;
 }
 
 .empty-page p {
     margin: 0;
 
-    color: #687386;
+    color: #596579;
 
     font-size: 14px;
+}
+
+
+/* =====================================================
+   ALL FUTURE INPUT PLACEHOLDERS
+===================================================== */
+
+input::placeholder,
+textarea::placeholder {
+    color: #596579;
+    opacity: 1;
 }
 
 
@@ -593,6 +673,7 @@ button {
 
 .loading {
     position: fixed;
+
     inset: 0;
 
     background: rgba(255, 255, 255, 0.85);
@@ -611,6 +692,7 @@ button {
     height: 40px;
 
     border: 4px solid #dbe4f2;
+
     border-top-color: #2563eb;
 
     border-radius: 50%;
@@ -648,6 +730,7 @@ button {
     border-radius: 8px;
 
     background: #172033;
+
     color: #ffffff;
 
     box-shadow:
@@ -672,6 +755,7 @@ button {
 
     .getting-item {
         border-right: 0;
+
         border-bottom: 1px solid #e5e9f0;
     }
 

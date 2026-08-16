@@ -542,75 +542,23 @@
                 ====================================================== -->
 
                 <section
-                    id="contactsPage"
-                    class="page-section hidden"
-                >
+    id="contactsPage"
+    class="page-section hidden"
+>
 
-                    <div class="contacts-toolbar">
+    <iframe
+        id="contactsFrame"
+        src=""
+        title="Contacts"
+        style="
+            width: 100%;
+            height: calc(100vh - 150px);
+            border: none;
+            display: block;
+        "
+    ></iframe>
 
-                        <div>
-                            <h2>Contacts</h2>
-                            <p>Manage the people on your mailing list.</p>
-                        </div>
-
-                        <button type="button" id="addContactButton" class="primary-button">
-                            + Add Contact
-                        </button>
-
-                    </div>
-
-                    <div class="contacts-search">
-                        <input type="search" id="contactSearch" placeholder="Search contacts by name, email or company..." autocomplete="off">
-                    </div>
-
-                    <div id="contactFormCard" class="dashboard-card hidden">
-                        <div class="card-header">
-                            <div>
-                                <h3>Add Contact</h3>
-                                <p>Add a contact to your mailing list.</p>
-                            </div>
-                        </div>
-
-                        <form id="contactForm">
-                            <div class="contact-form-grid">
-                                <div>
-                                    <label for="contactName">Name</label>
-                                    <input type="text" id="contactName" placeholder="John Smith">
-                                </div>
-                                <div>
-                                    <label for="contactEmail">Email</label>
-                                    <input type="email" id="contactEmail" placeholder="john@example.com" required>
-                                </div>
-                                <div>
-                                    <label for="contactCompany">Company</label>
-                                    <input type="text" id="contactCompany" placeholder="Company name">
-                                </div>
-                            </div>
-
-                            <div class="contact-form-actions">
-                                <button type="submit" class="primary-button">Save Contact</button>
-                                <button type="button" id="cancelContactButton" class="secondary-button">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="dashboard-card contacts-card">
-                        <div class="card-header">
-                            <div>
-                                <h3>Your Contacts</h3>
-                                <p id="contactCount">0 contacts</p>
-                            </div>
-                        </div>
-
-                        <div id="contactsList">
-                            <div class="empty-contacts">
-                                <strong>No contacts yet</strong>
-                                <p>Add your first contact to get started.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
+</section>
 
 
                 <!-- PLACEHOLDER PAGES -->

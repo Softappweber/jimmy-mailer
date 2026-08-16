@@ -492,60 +492,76 @@ const pageInformation = {
 };
 
 
+function showPage(page) {
+
+    const information =
+        pageInformation[page];
+
+    if (!information) {
+        return;
+    }
+
+
+    pageTitle.textContent =
+        information.title;
+
+    pageSubtitle.textContent =
+        information.subtitle;
+
+
+    /*
+     * Hide every page first.
+     */
+
+    dashboardPage.classList.add('hidden');
+
+    placeholderPage.classList.add('hidden');
+
+
+    /*
+     * Show the requested page.
+     */
+
+    if (page === 'dashboard') {
+
+        dashboardPage.classList.remove('hidden');
+
+        return;
+    }
+
+
+    placeholderTitle.textContent =
+        information.title;
+
+    placeholderText.textContent =
+        'This section will be implemented in a later step.';
+
+    placeholderPage.classList.remove('hidden');
+
+}
+
+
 navItems.forEach(item => {
 
-    item.addEventListener(
-        'click',
-        () => {
+    item.addEventListener('click', () => {
 
-            const page =
-                item.dataset.page;
+        const page =
+            item.dataset.page;
 
 
-            navItems.forEach(nav => {
+        navItems.forEach(nav => {
 
-                nav.classList.remove('active');
+            nav.classList.remove('active');
 
-            });
-
-
-            item.classList.add('active');
+        });
 
 
-            const information =
-                pageInformation[page];
+        item.classList.add('active');
 
 
-            pageTitle.textContent =
-                information.title;
+        showPage(page);
 
-            pageSubtitle.textContent =
-                information.subtitle;
-
-
-            if (page === 'dashboard') {
-
-                dashboardPage.classList.remove('hidden');
-
-                placeholderPage.classList.add('hidden');
-
-                return;
-            }
-
-
-            dashboardPage.classList.add('hidden');
-
-            placeholderPage.classList.remove('hidden');
-
-
-            placeholderTitle.textContent =
-               information.title;
-
-            placeholderText.textContent =
-     'This section will be implemented in a later step.'; 
-
-        }
-    );
+    });
 
 });
 

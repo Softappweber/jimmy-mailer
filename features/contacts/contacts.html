@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
 
@@ -49,6 +49,36 @@
             color: #687386;
         }
 
+        .primary-button {
+            border: none;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary-button {
+            border: 1px solid #d5dbe5;
+            background: #ffffff;
+            color: #374151;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .secondary-button:hover {
+            background: #f8fafc;
+        }
+
         .contacts-card {
             background: #ffffff;
             border: 1px solid #e5e9f0;
@@ -61,7 +91,14 @@
             border-bottom: 1px solid #e5e9f0;
         }
 
+        .toolbar-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         #contactSearch {
+            flex: 1;
             width: 100%;
             padding: 12px 14px;
             border: 1px solid #d5dbe5;
@@ -126,13 +163,107 @@
             border-top: 1px solid #fecaca;
         }
 
+        .success-message {
+            padding: 15px 20px;
+            color: #166534;
+            background: #f0fdf4;
+            border-bottom: 1px solid #bbf7d0;
+            font-size: 14px;
+        }
+
         .loading {
             padding: 40px 20px;
             text-align: center;
             color: #687386;
         }
 
-        @media (max-width: 700px) {
+        /* =====================================================
+           ADD CONTACT FORM
+        ====================================================== */
+
+        .add-contact-card {
+            background: #ffffff;
+            border: 1px solid #e5e9f0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .add-contact-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e9f0;
+        }
+
+        .add-contact-header h2 {
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .add-contact-header p {
+            margin: 6px 0 0;
+            color: #687386;
+            font-size: 14px;
+        }
+
+        .contact-form {
+            padding: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid #d5dbe5;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-field input:focus {
+            border-color: #2563eb;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .form-message.error {
+            color: #b91c1c;
+        }
+
+        .form-message.success {
+            color: #166534;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 800px) {
 
             body {
                 padding: 15px;
@@ -143,13 +274,18 @@
                 flex-direction: column;
             }
 
-            .contact-table {
-                font-size: 13px;
+            .toolbar-row {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .contact-table th,
-            .contact-table td {
-                padding: 10px;
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-table {
+                display: block;
+                overflow-x: auto;
             }
 
         }
@@ -162,6 +298,10 @@
 <body>
 
     <div class="contacts-page">
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
 
         <div class="contacts-header">
 
@@ -177,19 +317,144 @@
 
             </div>
 
+
+            <button
+                type="button"
+                id="addContactButton"
+                class="primary-button"
+            >
+                + Add Contact
+            </button>
+
         </div>
 
+
+        <!-- =====================================================
+             ADD CONTACT FORM
+        ====================================================== -->
+
+        <div
+            id="addContactCard"
+            class="add-contact-card hidden"
+        >
+
+            <div class="add-contact-header">
+
+                <h2>
+                    Add Contact
+                </h2>
+
+                <p>
+                    Add a new person to your mailing list.
+                </p>
+
+            </div>
+
+
+            <form
+                id="contactForm"
+                class="contact-form"
+            >
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+
+                        <label for="contactName">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactName"
+                            placeholder="John Smith"
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="contactEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            placeholder="john@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="contactCompany">
+                            Company
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactCompany"
+                            placeholder="Company name"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="saveContactButton"
+                    >
+                        Save Contact
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelContactButton"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONTACTS CARD
+        ====================================================== -->
 
         <div class="contacts-card">
 
             <div class="contacts-toolbar">
 
-                <input
-                    type="search"
-                    id="contactSearch"
-                    placeholder="Search contacts by name, email or company..."
-                    autocomplete="off"
-                >
+                <div class="toolbar-row">
+
+                    <input
+                        type="search"
+                        id="contactSearch"
+                        placeholder="Search contacts by name, email or company..."
+                        autocomplete="off"
+                    >
+
+                </div>
 
             </div>
 
@@ -255,8 +520,114 @@
         const contactSearch =
             document.getElementById('contactSearch');
 
+        const addContactButton =
+            document.getElementById('addContactButton');
+
+        const addContactCard =
+            document.getElementById('addContactCard');
+
+        const contactForm =
+            document.getElementById('contactForm');
+
+        const cancelContactButton =
+            document.getElementById('cancelContactButton');
+
+        const saveContactButton =
+            document.getElementById('saveContactButton');
+
+        const formMessage =
+            document.getElementById('formMessage');
+
+        const contactName =
+            document.getElementById('contactName');
+
+        const contactEmail =
+            document.getElementById('contactEmail');
+
+        const contactCompany =
+            document.getElementById('contactCompany');
+
 
         let contacts = [];
+
+
+        // =====================================================
+        // CURRENT USER
+        // =====================================================
+
+        let currentUser = null;
+
+
+        // =====================================================
+        // SHOW FORM
+        // =====================================================
+
+        addContactButton.addEventListener(
+            'click',
+            () => {
+
+                addContactCard.classList.remove('hidden');
+
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+
+                contactName.focus();
+
+            }
+        );
+
+
+        // =====================================================
+        // HIDE FORM
+        // =====================================================
+
+        cancelContactButton.addEventListener(
+            'click',
+            () => {
+
+                contactForm.reset();
+
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+
+                addContactCard.classList.add('hidden');
+
+            }
+        );
+
+
+        // =====================================================
+        // LOAD CURRENT USER
+        // =====================================================
+
+        async function getCurrentUser() {
+
+            const {
+                data: { user },
+                error
+            } =
+                await supabaseClient.auth.getUser();
+
+
+            if (error) {
+                throw error;
+            }
+
+
+            if (!user) {
+
+                throw new Error(
+                    'No authenticated user found. Please log in to Jimmy Mailer first.'
+                );
+
+            }
+
+
+            currentUser = user;
+
+            return user;
+
+        }
 
 
         // =====================================================
@@ -273,30 +644,10 @@
 
             try {
 
-                // Get currently authenticated user
+                const user =
+                    currentUser ||
+                    await getCurrentUser();
 
-                const {
-                    data: { user },
-                    error: userError
-                } =
-                    await supabaseClient.auth.getUser();
-
-
-                if (userError) {
-                    throw userError;
-                }
-
-
-                if (!user) {
-
-                    throw new Error(
-                        'No authenticated user found.'
-                    );
-
-                }
-
-
-                // Fetch only this user's contacts
 
                 const {
                     data,
@@ -353,6 +704,197 @@
             }
 
         }
+
+
+        // =====================================================
+        // ADD CONTACT
+        // =====================================================
+
+        contactForm.addEventListener(
+            'submit',
+            async (event) => {
+
+                event.preventDefault();
+
+
+                formMessage.textContent = '';
+                formMessage.className =
+                    'form-message';
+
+
+                saveContactButton.disabled = true;
+
+                saveContactButton.textContent =
+                    'Saving...';
+
+
+                try {
+
+                    const user =
+                        currentUser ||
+                        await getCurrentUser();
+
+
+                    const name =
+                        contactName.value
+                            .trim();
+
+                    const email =
+                        contactEmail.value
+                            .trim()
+                            .toLowerCase();
+
+                    const company =
+                        contactCompany.value
+                            .trim();
+
+
+                    if (!email) {
+
+                        throw new Error(
+                            'Email address is required.'
+                        );
+
+                    }
+
+
+                    // =================================================
+                    // CHECK FOR DUPLICATE EMAIL
+                    // =================================================
+
+                    const {
+                        data: existingContact,
+                        error: duplicateError
+                    } =
+                        await supabaseClient
+                            .from('contacts')
+                            .select('id')
+                            .eq(
+                                'user_id',
+                                user.id
+                            )
+                            .eq(
+                                'email',
+                                email
+                            )
+                            .maybeSingle();
+
+
+                    if (duplicateError) {
+                        throw duplicateError;
+                    }
+
+
+                    if (existingContact) {
+
+                        throw new Error(
+                            'A contact with this email address already exists.'
+                        );
+
+                    }
+
+
+                    // =================================================
+                    // INSERT CONTACT
+                    // =================================================
+
+                    const {
+                        data,
+                        error
+                    } =
+                        await supabaseClient
+                            .from('contacts')
+                            .insert({
+
+                                user_id: user.id,
+
+                                name:
+                                    name || null,
+
+                                email: email,
+
+                                company:
+                                    company || null,
+
+                                status: 'active'
+
+                            })
+                            .select(
+                                'id, name, email, company, status, created_at'
+                            )
+                            .single();
+
+
+                    if (error) {
+                        throw error;
+                    }
+
+
+                    // Add new contact to local list
+
+                    contacts.unshift(data);
+
+
+                    // Refresh displayed list
+
+                    renderContacts(contacts);
+
+
+                    // Clear form
+
+                    contactForm.reset();
+
+
+                    formMessage.textContent =
+                        'Contact added successfully.';
+
+                    formMessage.className =
+                        'form-message success';
+
+
+                    // Close form after successful save
+
+                    setTimeout(() => {
+
+                        addContactCard.classList.add(
+                            'hidden'
+                        );
+
+                        formMessage.textContent = '';
+                        formMessage.className =
+                            'form-message';
+
+                    }, 1000);
+
+
+                } catch (error) {
+
+                    console.error(
+                        'Add contact error:',
+                        error
+                    );
+
+
+                    formMessage.textContent =
+                        error.message ||
+                        'Unable to add contact.';
+
+                    formMessage.className =
+                        'form-message error';
+
+
+                } finally {
+
+                    saveContactButton.disabled =
+                        false;
+
+                    saveContactButton.textContent =
+                        'Save Contact';
+
+                }
+
+            }
+        );
 
 
         // =====================================================
@@ -544,7 +1086,41 @@
         // START
         // =====================================================
 
-        loadContacts();
+        async function startContactsPage() {
+
+            try {
+
+                await getCurrentUser();
+
+                await loadContacts();
+
+            } catch (error) {
+
+                console.error(
+                    'Contacts startup error:',
+                    error
+                );
+
+
+                contactCount.textContent =
+                    'Unable to load contacts';
+
+
+                contactsContent.innerHTML = `
+                    <div class="error-message">
+                        ${escapeHtml(
+                            error.message ||
+                            'Unable to load contacts.'
+                        )}
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        startContactsPage();
 
     </script>
 

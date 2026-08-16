@@ -1040,27 +1040,3 @@ textarea::placeholder {
     }
 
 }
-
-/* =====================================================
-   SIDEBAR — COLORFUL NAVIGATION ICONS ONLY
-===================================================== */
-
-.nav-item[data-page="dashboard"] .nav-icon {
-    color: #2563eb;
-}
-
-.nav-item[data-page="campaigns"] .nav-icon {
-    color: #7c3aed;
-}
-
-.nav-item[data-page="contacts"] .nav-icon {
-    color: #059669;
-}
-
-.nav-item[data-page="templates"] .nav-icon {
-    color: #d97706;
-}
-
-.nav-item[data-page="settings"] .nav-icon {
-    color: #475569;
-}

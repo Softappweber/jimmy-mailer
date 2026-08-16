@@ -537,214 +537,107 @@
                 </section>
 
 
+                <!-- =====================================================
+                     CONTACTS
+                ====================================================== -->
+
+                <section
+                    id="contactsPage"
+                    class="page-section hidden"
+                >
+
+                    <div class="contacts-toolbar">
+
+                        <div>
+                            <h2>Contacts</h2>
+                            <p>Manage the people on your mailing list.</p>
+                        </div>
+
+                        <button type="button" id="addContactButton" class="primary-button">
+                            + Add Contact
+                        </button>
+
+                    </div>
+
+                    <div class="contacts-search">
+                        <input type="search" id="contactSearch" placeholder="Search contacts by name, email or company..." autocomplete="off">
+                    </div>
+
+                    <div id="contactFormCard" class="dashboard-card hidden">
+                        <div class="card-header">
+                            <div>
+                                <h3>Add Contact</h3>
+                                <p>Add a contact to your mailing list.</p>
+                            </div>
+                        </div>
+
+                        <form id="contactForm">
+                            <div class="contact-form-grid">
+                                <div>
+                                    <label for="contactName">Name</label>
+                                    <input type="text" id="contactName" placeholder="John Smith">
+                                </div>
+                                <div>
+                                    <label for="contactEmail">Email</label>
+                                    <input type="email" id="contactEmail" placeholder="john@example.com" required>
+                                </div>
+                                <div>
+                                    <label for="contactCompany">Company</label>
+                                    <input type="text" id="contactCompany" placeholder="Company name">
+                                </div>
+                            </div>
+
+                            <div class="contact-form-actions">
+                                <button type="submit" class="primary-button">Save Contact</button>
+                                <button type="button" id="cancelContactButton" class="secondary-button">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="dashboard-card contacts-card">
+                        <div class="card-header">
+                            <div>
+                                <h3>Your Contacts</h3>
+                                <p id="contactCount">0 contacts</p>
+                            </div>
+                        </div>
+
+                        <div id="contactsList">
+                            <div class="empty-contacts">
+                                <strong>No contacts yet</strong>
+                                <p>Add your first contact to get started.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
                 <!-- PLACEHOLDER PAGES -->
 
                 <section
-                  <!-- =====================================================
-     CONTACTS
-====================================================== -->
-
-<section
-    id="contactsPage"
-    class="page-section hidden"
->
-
-    <div class="contacts-toolbar">
-
-        <div>
-            <h2>Contacts</h2>
-            <p>Manage the people on your mailing list.</p>
-        </div>
-
-        <button
-            type="button"
-            id="addContactButton"
-            class="primary-button"
-        >
-            + Add Contact
-        </button>
-
-    </div>
-
-
-    <!-- SEARCH -->
-
-    <div class="contacts-search">
-
-        <input
-            type="search"
-            id="contactSearch"
-            placeholder="Search contacts by name, email or company..."
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <!-- CONTACT FORM -->
-
-    <div
-        id="contactFormCard"
-        class="dashboard-card hidden"
-    >
-
-        <div class="card-header">
-
-            <div>
-
-                <h3>Add Contact</h3>
-
-                <p>
-                    Add a contact to your mailing list.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <form id="contactForm">
-
-            <div class="contact-form-grid">
-
-                <div>
-
-                    <label for="contactName">
-                        Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="contactName"
-                        placeholder="John Smith"
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label for="contactEmail">
-                        Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="contactEmail"
-                        placeholder="john@example.com"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label for="contactCompany">
-                        Company
-                    </label>
-
-                    <input
-                        type="text"
-                        id="contactCompany"
-                        placeholder="Company name"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-form-actions">
-
-                <button
-                    type="submit"
-                    class="primary-button"
+                    id="placeholderPage"
+                    class="page-section hidden"
                 >
-                    Save Contact
-                </button>
 
-                <button
-                    type="button"
-                    id="cancelContactButton"
-                    class="secondary-button"
-                >
-                    Cancel
-                </button>
+                    <div class="empty-page">
 
-            </div>
+                        <div class="empty-icon">
+                            JM
+                        </div>
 
-        </form>
+                        <h2 id="placeholderTitle">
+                            Coming Soon
+                        </h2>
 
-    </div>
+                        <p id="placeholderText">
+                            This section will be implemented in a later step.
+                        </p>
 
+                    </div>
 
-    <!-- CONTACT LIST -->
+                </section>
 
-    <div class="dashboard-card contacts-card">
-
-        <div class="card-header">
-
-            <div>
-
-                <h3>Your Contacts</h3>
-
-                <p id="contactCount">
-                    0 contacts
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div id="contactsList">
-
-            <div class="empty-contacts">
-
-                <strong>
-                    No contacts yet
-                </strong>
-
-                <p>
-                    Add your first contact to get started.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     OTHER PLACEHOLDER PAGES
-====================================================== -->
-
-<section
-    id="placeholderPage"
-    class="page-section hidden"
->
-
-    <div class="empty-page">
-
-        <div class="empty-icon">
-            JM
-        </div>
-
-        <h2 id="placeholderTitle">
-            Coming Soon
-        </h2>
-
-        <p id="placeholderText">
-            This section will be implemented in a later step.
-        </p>
-
-    </div>
-
-</section>
             </main>
 
         </div>

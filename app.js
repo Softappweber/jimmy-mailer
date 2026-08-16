@@ -433,6 +433,15 @@ logoutButton.addEventListener(
     logout
 );
 
+// =====================================================
+// Logout
+// =====================================================
+
+logoutButton.addEventListener(
+    'click',
+    logout
+);
+
 
 // =====================================================
 // Dashboard Navigation

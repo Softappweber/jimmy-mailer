@@ -1,49 +1,553 @@
-<section class="contacts-module">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="contacts-module-header">
+<head>
 
-        <div>
-            <h2>Contacts</h2>
-            <p>
-                Manage your mailing contacts.
-            </p>
-        </div>
+    <meta charset="UTF-8">
 
-        <div class="contacts-module-actions">
-
-            <span id="contactCount">
-                0 contacts
-            </span>
-
-            <button
-                type="button"
-                id="addContactButton"
-            >
-                Add Contact
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="contactsList"
-        class="contacts-list"
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-        <div class="contacts-empty">
+    <title>Jimmy Mailer - Contacts</title>
 
-            <strong>
-                No contacts yet
-            </strong>
+    <style>
 
-            <p>
-                Your contacts will appear here.
-            </p>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        .contacts-page {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contacts-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contacts-header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .contacts-header p {
+            margin: 7px 0 0;
+            color: #687386;
+        }
+
+        .contacts-card {
+            background: #ffffff;
+            border: 1px solid #e5e9f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .contacts-toolbar {
+            padding: 20px;
+            border-bottom: 1px solid #e5e9f0;
+        }
+
+        #contactSearch {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d5dbe5;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        #contactSearch:focus {
+            border-color: #2563eb;
+        }
+
+        .contact-count {
+            padding: 15px 20px;
+            color: #687386;
+            font-size: 14px;
+            border-bottom: 1px solid #e5e9f0;
+        }
+
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .contact-table th,
+        .contact-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eef1f5;
+        }
+
+        .contact-table th {
+            font-size: 13px;
+            color: #4b5563;
+            background: #f8fafc;
+        }
+
+        .contact-table td {
+            font-size: 14px;
+        }
+
+        .empty-state {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .empty-state strong {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            margin: 0;
+            color: #687386;
+        }
+
+        .error-message {
+            padding: 20px;
+            color: #b91c1c;
+            background: #fef2f2;
+            border-top: 1px solid #fecaca;
+        }
+
+        .loading {
+            padding: 40px 20px;
+            text-align: center;
+            color: #687386;
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .contacts-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .contact-table {
+                font-size: 13px;
+            }
+
+            .contact-table th,
+            .contact-table td {
+                padding: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="contacts-page">
+
+        <div class="contacts-header">
+
+            <div>
+
+                <h1>
+                    Contacts
+                </h1>
+
+                <p>
+                    Manage the people on your mailing list.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="contacts-card">
+
+            <div class="contacts-toolbar">
+
+                <input
+                    type="search"
+                    id="contactSearch"
+                    placeholder="Search contacts by name, email or company..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div
+                id="contactCount"
+                class="contact-count"
+            >
+                Loading contacts...
+            </div>
+
+
+            <div id="contactsContent">
+
+                <div class="loading">
+                    Loading contacts...
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-</section>
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script>
+
+        // =====================================================
+        // SUPABASE CONFIGURATION
+        // =====================================================
+
+        const SUPABASE_URL =
+            'https://noqomcunnjpseckfwexq.supabase.co';
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            'sb_publishable_JEy64MEHECql-Om23gaqdA_TEcl3T5O';
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+        // =====================================================
+        // DOM
+        // =====================================================
+
+        const contactsContent =
+            document.getElementById('contactsContent');
+
+        const contactCount =
+            document.getElementById('contactCount');
+
+        const contactSearch =
+            document.getElementById('contactSearch');
+
+
+        let contacts = [];
+
+
+        // =====================================================
+        // LOAD CONTACTS
+        // =====================================================
+
+        async function loadContacts() {
+
+            contactsContent.innerHTML = `
+                <div class="loading">
+                    Loading contacts...
+                </div>
+            `;
+
+            try {
+
+                // Get currently authenticated user
+
+                const {
+                    data: { user },
+                    error: userError
+                } =
+                    await supabaseClient.auth.getUser();
+
+
+                if (userError) {
+                    throw userError;
+                }
+
+
+                if (!user) {
+
+                    throw new Error(
+                        'No authenticated user found.'
+                    );
+
+                }
+
+
+                // Fetch only this user's contacts
+
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient
+                        .from('contacts')
+                        .select(
+                            'id, name, email, company, status, created_at'
+                        )
+                        .eq(
+                            'user_id',
+                            user.id
+                        )
+                        .order(
+                            'created_at',
+                            {
+                                ascending: false
+                            }
+                        );
+
+
+                if (error) {
+                    throw error;
+                }
+
+
+                contacts = data || [];
+
+                renderContacts(contacts);
+
+
+            } catch (error) {
+
+                console.error(
+                    'Contacts loading error:',
+                    error
+                );
+
+
+                contactCount.textContent =
+                    'Unable to load contacts';
+
+
+                contactsContent.innerHTML = `
+                    <div class="error-message">
+                        ${escapeHtml(
+                            error.message ||
+                            'Unable to load contacts.'
+                        )}
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        // =====================================================
+        // RENDER CONTACTS
+        // =====================================================
+
+        function renderContacts(list) {
+
+            contactCount.textContent =
+                `${list.length} contact${list.length === 1 ? '' : 's'}`;
+
+
+            if (!list.length) {
+
+                contactsContent.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <strong>
+                            No contacts yet
+                        </strong>
+
+                        <p>
+                            Your Supabase contacts will appear here.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            let rows = '';
+
+
+            list.forEach(contact => {
+
+                rows += `
+
+                    <tr>
+
+                        <td>
+                            ${escapeHtml(
+                                contact.name || '—'
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                contact.email
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                contact.company || '—'
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHtml(
+                                contact.status || 'active'
+                            )}
+                        </td>
+
+                    </tr>
+
+                `;
+
+            });
+
+
+            contactsContent.innerHTML = `
+
+                <table class="contact-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Company
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        ${rows}
+
+                    </tbody>
+
+                </table>
+
+            `;
+
+        }
+
+
+        // =====================================================
+        // SEARCH
+        // =====================================================
+
+        contactSearch.addEventListener(
+            'input',
+            () => {
+
+                const search =
+                    contactSearch.value
+                        .trim()
+                        .toLowerCase();
+
+
+                if (!search) {
+
+                    renderContacts(contacts);
+
+                    return;
+
+                }
+
+
+                const filtered =
+                    contacts.filter(contact => {
+
+                        return (
+
+                            (contact.name || '')
+                                .toLowerCase()
+                                .includes(search)
+
+                            ||
+
+                            (contact.email || '')
+                                .toLowerCase()
+                                .includes(search)
+
+                            ||
+
+                            (contact.company || '')
+                                .toLowerCase()
+                                .includes(search)
+
+                        );
+
+                    });
+
+
+                renderContacts(filtered);
+
+            }
+        );
+
+
+        // =====================================================
+        // HTML ESCAPING
+        // =====================================================
+
+        function escapeHtml(value) {
+
+            const div =
+                document.createElement('div');
+
+            div.textContent =
+                String(value);
+
+            return div.innerHTML;
+
+        }
+
+
+        // =====================================================
+        // START
+        // =====================================================
+
+        loadContacts();
+
+    </script>
+
+</body>
+
+</html>

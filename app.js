@@ -544,12 +544,23 @@ function showPage(page) {
      * Show Contacts.
      */
 
-    if (page === 'contacts') {
+  if (page === 'contacts') {
 
-        contactsPage.classList.remove('hidden');
+    contactsPage.classList.remove('hidden');
 
-        return;
+    const contactsFrame =
+        document.getElementById('contactsFrame');
+
+    if (!contactsFrame.src ||
+        !contactsFrame.src.includes('features/contacts/contacts.html')) {
+
+        contactsFrame.src =
+            'features/contacts/contacts.html';
+
     }
+
+    return;
+}
 
 
     /*

@@ -494,7 +494,6 @@ const pageInformation = {
 
 };
 
-
 function showPage(page) {
 
     const information =
@@ -518,18 +517,47 @@ function showPage(page) {
 
     dashboardPage.classList.add('hidden');
 
+    contactsPage.classList.add('hidden');
+
     placeholderPage.classList.add('hidden');
 
 
     /*
-     * Show the requested page.
+     * Show Dashboard.
+     */
+
+    if (page === 'dashboard') {
+
+        dashboardPage.classList.remove('hidden');
+
+        return;
+    }
+
+
+    /*
+     * Show Contacts.
      */
 
     if (page === 'contacts') {
 
-    contactsPage.classList.remove('hidden');
+        contactsPage.classList.remove('hidden');
 
-    return;
+        return;
+    }
+
+
+    /*
+     * Show other placeholder pages.
+     */
+
+    placeholderTitle.textContent =
+        information.title;
+
+    placeholderText.textContent =
+        'This section will be implemented in a later step.';
+
+    placeholderPage.classList.remove('hidden');
+
 }
 
     if (page === 'dashboard') {

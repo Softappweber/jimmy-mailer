@@ -434,6 +434,7 @@ logoutButton.addEventListener(
 );
 
 
+console.log("JIMMY MAILER APP.JS VERSION: 2026-08-16-01");
 
 // =====================================================
 // Dashboard Navigation

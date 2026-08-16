@@ -818,3 +818,225 @@ textarea::placeholder {
     }
 
 }
+
+
+/* =====================================================
+   CONTACTS — MODERN SAAS LAYOUT
+===================================================== */
+
+.contacts-toolbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.contacts-toolbar h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.contacts-toolbar p {
+    margin: 6px 0 0;
+    color: #687386;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.primary-button {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+
+.secondary-button {
+    border: 1px solid #d5dbe5;
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: #ffffff;
+    color: #39455a;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #f7f9fc;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.contacts-search {
+    margin-bottom: 18px;
+}
+
+.contacts-search input {
+    width: 100%;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #d5dbe5;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 14px;
+    outline: none;
+}
+
+.contacts-search input::placeholder {
+    color: #596579;
+    opacity: 1;
+}
+
+.contacts-search input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+#contactFormCard {
+    margin-bottom: 18px;
+}
+
+#contactFormCard label {
+    display: block;
+    margin-bottom: 7px;
+    color: #303b4f;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#contactFormCard input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #d5dbe5;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 14px;
+    outline: none;
+}
+
+#contactFormCard input::placeholder {
+    color: #596579;
+    opacity: 1;
+}
+
+#contactFormCard input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.contact-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+
+/* =========================
+   CONTACT LIST
+========================= */
+
+.contacts-card {
+    overflow: hidden;
+}
+
+.contacts-card .card-header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.contacts-card .card-header h3 {
+    margin: 0;
+    color: #172033;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.contacts-card .card-header p {
+    margin: 5px 0 0;
+    color: #596579;
+    font-size: 13px;
+}
+
+
+/* =========================
+   EMPTY CONTACT STATE
+========================= */
+
+.empty-contacts {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.empty-contacts strong {
+    display: block;
+    color: #303b4f;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.empty-contacts p {
+    margin: 8px 0 0;
+    color: #596579;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .contacts-toolbar {
+        flex-direction: column;
+    }
+
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-toolbar .primary-button {
+        width: 100%;
+    }
+
+}

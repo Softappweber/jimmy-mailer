@@ -446,6 +446,9 @@ const navItems =
 const dashboardPage =
     document.getElementById('dashboardPage');
 
+const contactsPage =
+    document.getElementById('contactsPage');
+
 const placeholderPage =
     document.getElementById('placeholderPage');
 
@@ -521,6 +524,13 @@ function showPage(page) {
     /*
      * Show the requested page.
      */
+
+    if (page === 'contacts') {
+
+    contactsPage.classList.remove('hidden');
+
+    return;
+}
 
     if (page === 'dashboard') {
 

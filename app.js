@@ -118,7 +118,7 @@ async function signup(name, email, password) {
                         name: name
                     },
                     emailRedirectTo:
-                'https://softappweber.github.io/jimmy-mailer/'
+                        'https://softappweber.github.io/jimmy-mailer/'
                 }
 
             });
@@ -436,6 +436,7 @@ logoutButton.addEventListener(
 
 console.log("JIMMY MAILER APP.JS VERSION: 2026-08-16-01");
 
+
 // =====================================================
 // Dashboard Navigation
 // =====================================================
@@ -493,6 +494,11 @@ const pageInformation = {
     }
 
 };
+
+
+// =====================================================
+// Page Switching
+// =====================================================
 
 function showPage(page) {
 
@@ -560,24 +566,10 @@ function showPage(page) {
 
 }
 
-    if (page === 'dashboard') {
 
-        dashboardPage.classList.remove('hidden');
-
-        return;
-    }
-
-
-    placeholderTitle.textContent =
-        information.title;
-
-    placeholderText.textContent =
-        'This section will be implemented in a later step.';
-
-    placeholderPage.classList.remove('hidden');
-
-}
-
+// =====================================================
+// Navigation Events
+// =====================================================
 
 navItems.forEach(item => {
 

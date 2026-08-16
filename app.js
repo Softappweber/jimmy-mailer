@@ -533,16 +533,16 @@ navItems.forEach(item => {
             }
 
 
-         //   dashboardPage.classList.add('hidden');
+            dashboardPage.classList.add('hidden');
 
-          //  placeholderPage.classList.remove('hidden');
+            placeholderPage.classList.remove('hidden');
 
 
-          //  placeholderTitle.textContent =
-             //   information.title;
+            placeholderTitle.textContent =
+               information.title;
 
-          //  placeholderText.textContent =
-           //     'This section will be implemented in a later step.'; 
+            placeholderText.textContent =
+     'This section will be implemented in a later step.'; 
 
         }
     );
